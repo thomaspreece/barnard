@@ -17,6 +17,7 @@ type Barnard struct {
 
 	Stream *gumbleopenal.Stream
 
+  StartChannel  string 
 	Ui            *uiterm.Ui
 	UiOutput      uiterm.Textview
 	UiInput       uiterm.Textbox

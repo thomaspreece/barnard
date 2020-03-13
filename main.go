@@ -16,6 +16,7 @@ func main() {
 	server := flag.String("server", "localhost:64738", "the server to connect to")
 	username := flag.String("username", "", "the username of the client")
 	password := flag.String("password", "", "the password of the server")
+	channel := flag.String("channel", "", "the channel to move to after connecting")
 	insecure := flag.Bool("insecure", false, "skip server certificate verification")
 	certificate := flag.String("certificate", "", "PEM encoded certificate and private key")
 
@@ -29,6 +30,8 @@ func main() {
 
 	b.Config.Username = *username
 	b.Config.Password = *password
+
+	b.StartChannel = *channel
 
 	if *insecure {
 		b.TLSConfig.InsecureSkipVerify = true

@@ -36,6 +36,12 @@ func (b *Barnard) start() {
 func (b *Barnard) OnConnect(e *gumble.ConnectEvent) {
 	b.Client = e.Client
 
+	for _, channel := range b.Client.Channels {
+		if channel.Name == b.StartChannel {
+			b.Client.Self.Move(channel)
+		}
+	}
+
 	b.Ui.SetActive(uiViewInput)
 	b.UiTree.Rebuild()
 	b.Ui.Refresh()
